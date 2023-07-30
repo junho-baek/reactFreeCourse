@@ -15,7 +15,25 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script>
     const root = document.getElementById("root");
-    const span = React.createElement("span", { id: "created-span", style: { color: "red" } }, "Hello I'm a span!");
-    ReactDOM.render(span, root);
+    const h3 = React.createElement("h3",
+                                   {
+                                     onMouseEnter: () => 
+                                       {
+                                         console.log("mouse Enter!")
+                                       }
+                                   }, 
+                                   "Hello I'm a span!"
+                                  );
+    let btnProp = {
+        onClick: () => 
+          {
+            console.log("I'm Clicked");
+          }  
+      }
+    let btnContent = "Click me!!!"
+    
+    const button  =React.createElement("button", btnProp, btnContent);
+    const container = React.createElement("div", null, [h3, button]);
+    ReactDOM.render(container, root);
   </script>
 </html>
