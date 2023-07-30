@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reactFreeCouse</title>
+  </head>
+  <body>
+    <span id="cnt">Total clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    const button = document.querySelector("#btn");
+    const cnt = document.querySelector("#cnt");
+    let counter = 0;
+    const handleClick = () => 
+      {
+        console.log("I have been clicked!!!");
+        counter++;
+        cnt.innerText = `Total clicks: ${counter}`;
+      };
+    button.addEventListener("click", handleClick);
+  </script>
+</html>
