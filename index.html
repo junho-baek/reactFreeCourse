@@ -9,31 +9,50 @@
   <body>
    <div id = "root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
-    
-  </script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
     const root = document.getElementById("root");
-    const h3 = React.createElement("h3",
-                                   {
-                                     onMouseEnter: () => 
-                                       {
-                                         console.log("mouse Enter!")
-                                       }
-                                   }, 
-                                   "Hello I'm a span!"
-                                  );
-    let btnProp = {
-        onClick: () => 
+    const Title = (
+      <h3 id="h3" onMouseEnter={() => {console.log("mouse Enter!")}}> Hello I am a Title! </h3>
+      );
+    const Button = (
+      <button onClick = {
+          () => 
           {
             console.log("I'm Clicked");
-          }  
-      }
-    let btnContent = "Click me!!!"
+          } 
+        } 
+      style = {
+        {
+        backgroundColor : "tomato"
+        }
+    }>
+      Click me!!!
+      </button>
+    )
+    "use strict";
+
+// var root = document.getElementById("root");
+// var Title = /*#__PURE__*/React.createElement("h3", {
+//   id: "h3",
+//   onMouseEnter: function onMouseEnter() {
+//     console.log("mouse Enter!");
+//   }
+// }, " Hello I am a Title! ");
+// var Button = /*#__PURE__*/React.createElement("button", {
+//   onClick: function onClick() {
+//     console.log("I'm Clicked");
+//   },
+//   style: {
+//     backgroundColor: "tomato"
+//   }
+// }, "Click me!!!");
+// var container = React.createElement("div", null, [Title, Button]);
+// ReactDOM.render(container, root);
     
-    const button  =React.createElement("button", btnProp, btnContent);
-    const container = React.createElement("div", null, [h3, button]);
+    const container = React.createElement("div", null, [Title, Button]);
     ReactDOM.render(container, root);
   </script>
 </html>
