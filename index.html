@@ -14,10 +14,10 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = (
+    const Title = () => (
       <h3 id="h3" onMouseEnter={() => {console.log("mouse Enter!")}}> Hello I am a Title! </h3>
       );
-    const Button = (
+    const Button = () => (
       <button onClick = {
           () => 
           {
@@ -32,27 +32,11 @@
       Click me!!!
       </button>
     )
-    "use strict";
-
-// var root = document.getElementById("root");
-// var Title = /*#__PURE__*/React.createElement("h3", {
-//   id: "h3",
-//   onMouseEnter: function onMouseEnter() {
-//     console.log("mouse Enter!");
-//   }
-// }, " Hello I am a Title! ");
-// var Button = /*#__PURE__*/React.createElement("button", {
-//   onClick: function onClick() {
-//     console.log("I'm Clicked");
-//   },
-//   style: {
-//     backgroundColor: "tomato"
-//   }
-// }, "Click me!!!");
-// var container = React.createElement("div", null, [Title, Button]);
-// ReactDOM.render(container, root);
     
-    const container = React.createElement("div", null, [Title, Button]);
-    ReactDOM.render(container, root);
+    const Container = () => (<div>
+    <Title/>
+      <Button/>
+    </div>);
+    ReactDOM.render(<Container />, root);
   </script>
 </html>
