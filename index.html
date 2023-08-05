@@ -9,19 +9,25 @@
   <body>
    <div id = "root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const App = () => (
+    const App = () => {
       //분할할당? 투포인터같은건가..??
-      const [counter, modifier] = React.useState(0);
-      <div>
+      const [counter, setCounter] = React.useState(0); // React.useState는 데이터와 그 데이터를 바꿀 수 있는 함수가 들어있는 배열을 반환함.
+      const onClick = () => {
+        setCounter(counter + 1);
+      }
+      return (
+        <div>
         <h3>Total clicks: {counter}</h3>
-        <button >Click me!</button>
-    </div>
-    );
+        <button onClick = {onClick}>Click me!</button>
+        </div>
+      )
+      
+    };
     ReactDOM.render(<App />, root);
     
   </script>
