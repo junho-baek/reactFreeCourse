@@ -19,15 +19,23 @@
       const onChange = (event) => {
         setMinutes(event.target.value)
       }
-      
+      const hours = Math.round(minutes/60 * 100)/100;
+      const onClick = () => setMinutes(0);
       return (
         <div>
-        <h1>Super Converter!</h1>
-        <label htmlFor="minutes">minutes</label>
-        <input value={minutes} id="minutes" onChange={onChange} placeholder = "Minute" type="number" />
-        <h2>You want convert {minutes}</h2>
-        <label htmlFor="hours">hours</label>
-        <input id= "hours"placeholder = "Hours" type="number" />
+          <h1>Super Converter!</h1>
+          <div>
+          <label htmlFor="minutes">minutes</label>
+          <input value={minutes}  id="minutes" onChange={onChange} placeholder = "Minute" type="number" />
+          </div>
+        
+          <h2>You want convert {minutes}</h2>  
+          <div>
+          <label htmlFor="hours">hours</label>
+          <input value={hours} disabled id= "hours"placeholder = "Hours" type="number" />
+          </div>
+          <button onClick={onClick}>reset</button>
+          <button onClick={onClick}>flip</button>
         </div>
       )
       
