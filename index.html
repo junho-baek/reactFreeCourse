@@ -29,15 +29,17 @@
     //     </button>
     //   )
     // }
-    function Btn({text, big}){
+    function Btn({text, onClick}){
       return(
-        <button style={{
+        <button
+          onClick={onClick}
+          style={{
           backgroundColor: "tomato",
           color: "white",
           padding: "10px 20px",
           border: 0,
           borderRadius: 10,
-          fontSize: big? 32:16,
+          
         }}>
           {text}
         </button>
@@ -49,14 +51,15 @@
     //   )
     // }
     
-    
+    const MemorizedBtn = React.memo(Btn);
     const App = () => {
-
+      const [value, setValue] = React.useState("Save2");
+      const changeValue = () => {setValue("It is changed!")}
       return (
         <div>
-          <Btn text={"save"} big={true}/>
+          <MemorizedBtn text={value} onClick = {changeValue}/>
           
-          <Btn text={"confirm"} big={false}/>
+          <MemorizedBtn text={"confirm"} />
         </div>
       )
       
