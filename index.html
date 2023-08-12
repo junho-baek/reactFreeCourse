@@ -4,73 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>reactFreeCouse</title>
+    <title>다시 시작합니다^^</title>
   </head>
   <body>
-   <div id = "root"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
   </body>
-  <!-- https://unpkg.com/prop-types@15.7.2/prop-types.js -->
-  <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel">
-    const root = document.getElementById("root");
-//props 는 우리가 APP() 에서 컴포넌트로 사용할 때 추가해주는 태그들을 오브젝트 형식으로 함수에 전달하는 인자이다. 컴포넌트도 결국 함수이다. 함수에 전달하는 것은 당연하게도 인자일 수밖에 없다. 하지만 그 인자에 담긴 정보가 너무 많아서 선택해서 쓰고 싶다면, props 즉, 오브젝트를 전체 인자로 받는 것이 아니라, 우리가 오브젝트로 주려고 했던 태그이름을 중괄호로 감싸서 인자로 주면 된다.
-    // function Btn(props){
-    //   console.log(props)
-    //   return(
-    //     <button style={{
-    //       backgroundColor: "tomato",
-    //       color: "white",
-    //       padding: "10px 20px",
-    //       border: 0,
-    //       borderRadius: 10,
-    //     }}>
-    //       {props.text}
-    //     </button>
-    //   )
-    // }
-    function Btn({text, onClick, fontSize = 30}){
-      return(
-        <button
-          onClick={onClick}
-          style={{
-          backgroundColor: "tomato",
-          color: "white",
-          padding: "10px 20px",
-          border: 0,
-          borderRadius: 10,
-          fontSize
-        }}>
-          {text}
-        </button>
-      )
-    }
-    // function ConfirmBtn(){
-    //   return(
-    //     <button>Confirm</button>
-    //   )
-    // }
-    Btn.propTypes ={
-      text:PropTypes.string.isRequired,
-      fontSize: PropTypes.number
-    }
-    
-    const MemorizedBtn = React.memo(Btn);
-    const App = () => {
-      const [value, setValue] = React.useState("Save2");
-      const changeValue = () => {setValue("It is changed!")}
-      return (
-        <div>
-          <MemorizedBtn text={value} fontSize={50} onClick = {changeValue}/>
-          
-          <MemorizedBtn text={"confirm"} />
-        </div>
-      )
-      
-    };
-    ReactDOM.render(<App />, root);
-    
-  </script>
 </html>
